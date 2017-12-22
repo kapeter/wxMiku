@@ -1,0 +1,25 @@
+<!--logs.wxml-->
+<view class="container">
+	<scroll-view scroll-x="true" class="list-header">
+		<view class="cat-nav {{ currentIdx == -1 ? 'nav-active' : '' }}" bindtap="changeCat" data-id="-1"> 全部文章 </view>
+		<block wx:for="{{ catList }}" wx:key="id">
+		  <view class="cat-nav {{ currentIdx == index ? 'nav-active' : '' }}" bindtap="changeCat" data-id="{{ index }}"> {{item.name}} </view>
+		</block>
+		<view class="acitve-tab" style="left: {{ actStyle.left }}px; width: {{ actStyle.width }}rpx"></view>
+	</scroll-view>
+
+	<view>
+		<block wx:for="{{ postList }}">
+			<navigator wx:for="{{ postList[index] }}" wx:key="id" wx:for-item="post" class="post-box" url="/pages/post/content/content?id={{ post.id }}">
+			    <text class="post-title">{{post.title}}</text>
+		        <view class="post-info clearfix">
+		          <text class="category-tag">{{ post.category.name }}</text>
+		          <text class="post-time">发布日期：{{ post.published_at.date }}</text>          
+		        </view> 
+			</navigator>
+			<view class="more-btn">
+				<button class="btn">加载更多</button>
+			</view>
+		</block>
+	</view>
+</view>

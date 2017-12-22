@@ -1,0 +1,36 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/post/list/list",
+    "pages/post/content/content"
+  ],
+  "window":{
+    "navigationBarBackgroundColor": "#39c5bb",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "KaPeter",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar":{
+    "borderStyle": "white",
+    "color": "#8f9295",
+    "selectedColor":"#39c5bb",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首 页",
+      "iconPath": "resources/icon/home.png",
+      "selectedIconPath":"resources/icon/home_HL.png"
+    }, {
+      "pagePath": "pages/post/list/list",
+      "text": "文 章",
+      "iconPath": "resources/icon/article.png",
+      "selectedIconPath":"resources/icon/article_HL.png"
+    },{
+      "pagePath": "pages/logs/logs",
+      "text": "联系我",
+      "iconPath": "resources/icon/icon_API.png",
+      "selectedIconPath":"resources/icon/icon_API_HL.png"
+    }]
+  }
+}

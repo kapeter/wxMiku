@@ -1,0 +1,27 @@
+.content{
+	padding: 30rpx;
+}
+.content .title{
+	font-size:40rpx;
+	color:#333;
+	margin: 15rpx 0;
+}
+.content .info{
+	font-size: 24rpx;
+	color: #999;
+	border-bottom: 1px solid #ddd;
+	padding: 15rpx 0;
+}
+
+.content .info text{
+	display: block;
+	margin-right: 15rpx;
+}
+
+.content .body{
+	padding: 30rpx 0;
+    font-family: Poppins,PingFang SC,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 28rpx;
+    color: #666;
+    line-height: 1.5;
+}

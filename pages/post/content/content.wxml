@@ -1,0 +1,12 @@
+<!--logs.wxml-->
+<view class="container content">
+	<view class="title">{{ thePost.title }}</view>
+	<view class="info">
+		<text class="category">所属栏目：{{ thePost.category.name }}</text>
+		<text class="time">发布时间：{{ thePost.published_at.date }}</text>
+	</view>
+	<view class="body">
+		<import src="../../../wxParse/wxParse.wxml"/>
+		<template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+	</view>
+</view>

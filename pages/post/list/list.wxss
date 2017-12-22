@@ -1,0 +1,30 @@
+.list-header{
+	width: 100%;
+	margin-top: 30rpx;
+	overflow: hidden;
+	background: #fff;
+	white-space: nowrap;
+	box-sizing: border-box;
+	position: relative;
+}
+.cat-nav{
+	height: auto;
+ 	padding: 15rpx 0;
+	width: 200rpx;
+  	text-align: center;
+	display: inline-block;
+	font-size: 32rpx;
+	color: #666;
+	border-bottom: 1px solid #ddd;
+	transition: all 0.25s ease-in-out;
+}
+.nav-active{
+	color: #39c5bb;
+}
+.acitve-tab{
+	position: absolute;
+	top: 69rpx;
+	height: 2px;
+	background: #39c5bb;
+	transition: all 0.25s ease-in-out;
+}

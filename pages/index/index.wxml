@@ -1,0 +1,34 @@
+<!--index.wxml-->
+<view class="container">
+  <swiper autoplay="true" interval="3000" duration="500" class="swiper-container" indicator-active-color="#39c5bb" indicator-color="rgba(255,255,255,.5)" indicator-dots="true" circular="true"> 
+    <block wx:for="{{bannerItems}}" wx:key="id">
+      <swiper-item>
+        <navigator url="/pages/post/content/content?id={{ item.id }}">
+          <image src="{{item.cover_img}}" class="slide-image" width="100%"/>
+          <view class="slide-content">
+            <text>{{item.title}}</text>
+          </view>
+        </navigator>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="box-header">
+    <text class="main">近期文章</text>
+    <text class="sub">Lastest Articles</text>
+  </view>
+
+  <view class="posts-list">
+    <block wx:for="{{postItems}}" wx:key="id">
+      <navigator url="/pages/post/content/content?id={{ item.id }}" class="post-box">
+        <text class="post-title">{{item.title}}</text>
+        <view class="post-info clearfix">
+          <text class="category-tag">{{ item.category.name }}</text>
+          <text class="post-time">发布日期：{{ item.published_at.date }}</text>          
+        </view>     
+      </navigator>
+    </block>
+  </view>
+  <view class="more-btn">
+    <navigator open-type="switchTab" url="/pages/post/list/list" class="btn" hover-class="navigator-hover"> 查看更多文章 </navigator>
+  </view>
+</view>
