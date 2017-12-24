@@ -1,5 +1,5 @@
 <!--logs.wxml-->
-<view class="container content">
+<view class="container content" wx:if="{{isLoaded}}">
 	<view class="title">{{ thePost.title }}</view>
 	<view class="info">
 		<text class="category">所属栏目：{{ thePost.category.name }}</text>
@@ -9,4 +9,9 @@
 		<import src="../../../wxParse/wxParse.wxml"/>
 		<template is="wxParse" data="{{wxParseData:content.nodes}}"/>
 	</view>
+</view>
+
+<view class="loading-box" wx:else>
+  <image src="/resources/loading.gif"></image>
+  <text>Now Loading……</text>
 </view>

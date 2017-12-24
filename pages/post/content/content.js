@@ -3,7 +3,8 @@ const marked  = require('../../../utils/marked.js')
 
 Page({
   data: {
-    thePost: {}
+    thePost: {},
+    isLoaded: false,
   },
   onLoad: function (options) {
     let _self = this
@@ -11,15 +12,18 @@ Page({
     wx.request({
       url: 'https://api.kapeter.com/post/' + id, 
       success: function(res) {
+        let postData = res.data.data;
+        postData.published_at.date = postData.published_at.date.slice(0, 19);
         _self.setData({
-          thePost: res.data.data
+          thePost: postData,
+          isLoaded: true
         }) 
 
-        let html = marked(res.data.data.content)
+        let html = marked(postData.content)
         WxParse.wxParse('content', 'html', html, _self, 5);
 
         wx.setNavigationBarTitle({
-          title: res.data.data.title
+          title: postData.title
         })
       }
     })

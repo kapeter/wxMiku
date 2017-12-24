@@ -1,7 +1,7 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs",
+    "pages/contact/contact",
     "pages/post/list/list",
     "pages/post/content/content"
   ],
@@ -27,7 +27,7 @@
       "iconPath": "resources/icon/article.png",
       "selectedIconPath":"resources/icon/article_HL.png"
     },{
-      "pagePath": "pages/logs/logs",
+      "pagePath": "pages/contact/contact",
       "text": "联系我",
       "iconPath": "resources/icon/icon_API.png",
       "selectedIconPath":"resources/icon/icon_API_HL.png"

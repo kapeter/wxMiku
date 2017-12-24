@@ -1,25 +1,35 @@
 <!--logs.wxml-->
-<view class="container">
+<view class="container"  wx:if="{{isLoaded}}">
 	<scroll-view scroll-x="true" class="list-header">
-		<view class="cat-nav {{ currentIdx == -1 ? 'nav-active' : '' }}" bindtap="changeCat" data-id="-1"> 全部文章 </view>
+		<view class="cat-nav {{ currentIdx == 0 ? 'nav-active' : '' }}" bindtap="changeCat" data-index="0" data-cat="0"> 全部文章 </view>
 		<block wx:for="{{ catList }}" wx:key="id">
-		  <view class="cat-nav {{ currentIdx == index ? 'nav-active' : '' }}" bindtap="changeCat" data-id="{{ index }}"> {{item.name}} </view>
+		  <view class="cat-nav {{ currentIdx == index + 1 ? 'nav-active' : '' }}" bindtap="changeCat" data-index="{{ index + 1 }}" data-cat="{{ item.id }}"> {{item.name}} </view>
 		</block>
 		<view class="acitve-tab" style="left: {{ actStyle.left }}px; width: {{ actStyle.width }}rpx"></view>
 	</scroll-view>
 
-	<view>
-		<block wx:for="{{ postList }}">
+	<block wx:for="{{ postList }}" wx:key="">
+		<view wx:if="{{ currentIdx == index }}" class="post-list">
 			<navigator wx:for="{{ postList[index] }}" wx:key="id" wx:for-item="post" class="post-box" url="/pages/post/content/content?id={{ post.id }}">
 			    <text class="post-title">{{post.title}}</text>
 		        <view class="post-info clearfix">
 		          <text class="category-tag">{{ post.category.name }}</text>
 		          <text class="post-time">发布日期：{{ post.published_at.date }}</text>          
 		        </view> 
-			</navigator>
-			<view class="more-btn">
-				<button class="btn">加载更多</button>
+			</navigator>	
+			<view class="more-btn" wx:if="{{ metaList[index].total != 0 }}">
+				<button class="btn" wx:if="{{ metaList[index].current_page != metaList[index].total_pages }}" bindtap="loadData" data-index="{{ index }}">加载更多文章</button>
+				<view class="last-warning" wx:else>——————  已经到底啦！  ——————</view>
 			</view>
-		</block>
-	</view>
+			<view wx:else class="no-post">
+			  	<image src="/resources/error.jpg"></image>
+  			  	<text>没找到文章，要不换个姿势再试试</text>
+  			</view>
+		</view>
+	</block>
+</view>
+
+<view class="loading-box" wx:else>
+  <image src="/resources/loading.gif"></image>
+  <text>Now Loading……</text>
 </view>

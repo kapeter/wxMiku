@@ -9,7 +9,7 @@
 }
 .cat-nav{
 	height: auto;
- 	padding: 15rpx 0;
+ 	padding: 15rpx 0 30rpx;
 	width: 200rpx;
   	text-align: center;
 	display: inline-block;
@@ -23,8 +23,24 @@
 }
 .acitve-tab{
 	position: absolute;
-	top: 69rpx;
+	top: 84rpx;
 	height: 2px;
 	background: #39c5bb;
 	transition: all 0.25s ease-in-out;
+}
+
+.no-post{
+	font-size: 28rpx;
+	text-align: center;
+	color: #999;
+}
+.no-post image{
+	width: 160px;
+	height: 151px;
+	margin-top: 15%;
+}
+.no-post text{
+	display: block;
+	font-size: 28rpx;
+	margin-top: 15rpx;
 }

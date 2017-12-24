@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container" wx:if="{{isLoaded}}">
   <swiper autoplay="true" interval="3000" duration="500" class="swiper-container" indicator-active-color="#39c5bb" indicator-color="rgba(255,255,255,.5)" indicator-dots="true" circular="true"> 
     <block wx:for="{{bannerItems}}" wx:key="id">
       <swiper-item>
@@ -31,4 +31,9 @@
   <view class="more-btn">
     <navigator open-type="switchTab" url="/pages/post/list/list" class="btn" hover-class="navigator-hover"> 查看更多文章 </navigator>
   </view>
+</view>
+
+<view class="loading-box" wx:else>
+  <image src="/resources/loading.gif"></image>
+  <text>Now Loading……</text>
 </view>
